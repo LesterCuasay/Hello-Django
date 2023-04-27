@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY','django-insecure-o!f$p7wxx04tgc)#kk*4dn%mq4#lrj^#8m0d4eip08(ja8@f4&')
+SECRET_KEY = os.environ.get('SECRET_KEY','')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = development
@@ -80,14 +80,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'django_todo.wsgi.application'
 
-if development:
-    # Database
-    # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# Database
+# https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+if development:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         }
     }
 else:
